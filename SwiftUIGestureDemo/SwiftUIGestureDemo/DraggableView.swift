@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DraggableView.swift
 //  SwiftUIGestureDemo
 //
 //  Created by Sujan Vaidya on 1/3/20.
@@ -8,18 +8,41 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    // For drag gesture
+enum DragState {
+    case inactive
+    case pressing
+    case dragging(translation: CGSize)
+    
+    var translation: CGSize {
+        switch self {
+        case .inactive, .pressing:
+            return .zero
+        case .dragging(let translation):
+            return translation
+        }
+    }
+    
+    var isPressing: Bool {
+        switch self {
+        case .pressing, .dragging:
+            return true
+        case .inactive:
+            return false
+        }
+    }
+}
+
+struct DraggableView<Content: View>: View {
     @GestureState private var dragState = DragState.inactive
     @State private var position = CGSize.zero
     
+    var content: () -> Content
+    
     var body: some View {
-        Image(systemName: "star.circle.fill")
-            .font(.system(size: 100))
+        content()
             .opacity(dragState.isPressing ? 0.5 : 1.0)
             .offset(x: position.width + dragState.translation.width, y: position.height + dragState.translation.height)
             .animation(.easeInOut)
-            .foregroundColor(.green)
             .gesture(
                 LongPressGesture(minimumDuration: 1.0)
                     .sequenced(before: DragGesture())
@@ -48,8 +71,19 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DraggableView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DraggableView() {
+            //            Image(systemName: "star.circle.fill")
+            //                .font(.system(size: 100))
+            //                .foregroundColor(.green)
+            //            Text("Swift")
+            //                .font(.system(size: 50, weight: .bold, design: .rounded))
+            //                .bold()
+            //                .foregroundColor(.red)
+            Circle()
+                .frame(width: 100, height: 100)
+                .foregroundColor(.purple)
+        }
     }
 }

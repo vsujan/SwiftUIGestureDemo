@@ -13,6 +13,7 @@
 		0E5CE52023BF279B0021975D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5CE51F23BF279B0021975D /* Assets.xcassets */; };
 		0E5CE52323BF279B0021975D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5CE52223BF279B0021975D /* Preview Assets.xcassets */; };
 		0E5CE52623BF279B0021975D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5CE52423BF279B0021975D /* LaunchScreen.storyboard */; };
+		0E5CE52E23BF3A290021975D /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CE52D23BF3A290021975D /* DraggableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0E5CE52223BF279B0021975D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E5CE52523BF279B0021975D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E5CE52723BF279B0021975D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E5CE52D23BF3A290021975D /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0E5CE52423BF279B0021975D /* LaunchScreen.storyboard */,
 				0E5CE52723BF279B0021975D /* Info.plist */,
 				0E5CE52123BF279B0021975D /* Preview Content */,
+				0E5CE52D23BF3A290021975D /* DraggableView.swift */,
 			);
 			path = SwiftUIGestureDemo;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				0E5CE51A23BF27960021975D /* AppDelegate.swift in Sources */,
 				0E5CE51C23BF27960021975D /* SceneDelegate.swift in Sources */,
+				0E5CE52E23BF3A290021975D /* DraggableView.swift in Sources */,
 				0E5CE51E23BF27960021975D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

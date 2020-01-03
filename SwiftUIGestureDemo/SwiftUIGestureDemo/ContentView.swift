@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isPressed = false
+    @GestureState private var longPressTap = false
     
     var body: some View {
         Image(systemName: "star.circle.fill")
@@ -17,9 +18,13 @@ struct ContentView: View {
             .animation(.easeInOut)
             .foregroundColor(.green)
             .scaleEffect(isPressed ? 0.5 : 1.0)
+            .opacity(longPressTap ? 0.4 : 1.0)
             .gesture(
-                TapGesture()
-                    .onEnded({
+                LongPressGesture(minimumDuration: 1.0)
+                    .updating($longPressTap, body: {(currentState, state, transaction) in
+                        state = currentState
+                    })
+                    .onEnded({_ in
                         self.isPressed.toggle()
                     })
         )
